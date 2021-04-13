@@ -5,7 +5,7 @@ import './Checkout_Item.css';
 
 const CheckoutItem = ({cartItem}) => {
     const dispatch = useDispatch()
-    console.log(cartItem)
+    
     const {name, imageUrl, price, quantity} = cartItem 
     return (
         <div className="checkout-item">
