@@ -14,9 +14,9 @@ import { selectCurrentUser } from './redux/user/user_selector';
 
 function App() {
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const currentUser = useSelector(state => selectCurrentUser(state))
+  const currentUser = useSelector(state => selectCurrentUser(state));
 
   let unsubscribeFromAuth = null;
 
@@ -29,11 +29,11 @@ function App() {
           dispatch(setCurrentUser({
             id: snapShot.id,
             ...snapShot.data()
-          }))
+          }));
 
-        })
+        });
       }else{
-        dispatch(setCurrentUser(userAuth))
+        dispatch(setCurrentUser(userAuth));
       }
 
     })
@@ -51,7 +51,7 @@ function App() {
        <Header />
        <Switch>
          <Route exact path='/' component={Homepage} />
-         <Route exact path='/shop' component={Shop} />
+         <Route path='/shop' component={Shop} />
          <Route exact path='/signin' render={()=> currentUser ? <Redirect to='/'/> : <SignInSignUp />}  />
          <Route exact path='/checkout' component={CheckoutPage} />
        </Switch>

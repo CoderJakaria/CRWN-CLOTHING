@@ -1,46 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Directory.css';
 import MenuItem from '../Menu-Item/MenuItem';
+import { useSelector } from 'react-redux';
+import { selectDirectorySection } from '../../redux/directory/directory-selector';
 
 const Directory = () => {
-    const [updt,setUpdt] = useState({
-        sections : [{
-            title:'hats',
-            imageUrl:'https://i.ibb.co/cvpntL1/hats.png',
-            id:1,
-            linkUrl:'hats'
-        },
-        {
-            title:'Jackets',
-            imageUrl:'https://i.ibb.co/px2tCc3/jackets.png',
-            id:2,
-            linkUrl:'jacket'
-        },
-        {
-            title:'Sneakers',
-            imageUrl:'https://i.ibb.co/0jqHpnp/sneakers.png',
-            id:3,
-            linkUrl:''
-        },
-        {
-            title:'Womens',
-            imageUrl:'https://i.ibb.co/GCCdy8t/womens.png',
-            id:4,
-            linkUrl:'',
-            size:'large'
-        },
-        {
-            title:'Mens',
-            imageUrl:'https://i.ibb.co/R70vBrQ/mens.png',
-            id:5,
-            linkUrl:'',
-            size:'large'
-        }
-    ]
-    })
+
+    const directory = useSelector(state=> selectDirectorySection(state))
+
     return (
         <div className='directory-menu'>
-            {updt.sections.map(({id, ...otherSectionProp})=>{
+            {directory.map(({id, ...otherSectionProp})=>{
                 return <MenuItem key={id} {...otherSectionProp}/>
             })}
         </div>

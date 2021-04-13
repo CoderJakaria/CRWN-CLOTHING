@@ -1,0 +1,5 @@
+.collection-preview
+{
+    display: flex;
+    flex-direction: column;
+}
