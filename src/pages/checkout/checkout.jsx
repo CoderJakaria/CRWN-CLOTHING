@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import CheckoutItem from '../../components/checkout-item/Checkout_Item';
-import StripeCheckoutButton from '../../components/stripe-button/StripeButton';
 import { selectCartItems, selectCartTotal } from '../../redux/cart/cart_selector';
 import './checkout.css';
 
@@ -39,12 +38,11 @@ const CheckoutPage = () => {
             <div className="total">
                 <span>TOTAL: ${total} </span>
             </div>
-            <div className="test-warning">
+            {/* <div className="test-warning">
                 *Pls use the following test credit cart for payment*
                       <br/>
                 4242 4242 4242 4242 - Exp: future month and year - CVV: 123
-            </div>
-            <StripeCheckoutButton price={total}/>
+            </div> */}
         </div>
     )
 }
