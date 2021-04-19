@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './Header.css';
+// import './Header.css';
+import { HeaderContainer, LogoContainer, OptionsContainer, OptionDiv, OptionLink } from './Header.styles';
 import {ReactComponent as Logo} from '../../assets/crown.svg';
 import { auth } from '../../Firebase/Firebase.utils';
 import { useSelector } from 'react-redux';
@@ -15,25 +15,25 @@ const Header = () => {
     const cart = useSelector(state => selectCartHidden(state))
 
     return (
-        <div className='header'>
-            <Link to='/' className='logo-container'>
+        <HeaderContainer>
+            <LogoContainer to='/'>
                <Logo className='logo'/>
-            </Link>
-            <div className='options'>
-               <Link to='/shop' className='option'> SHOP </Link>
-               <Link to='/shop' className='option'> CONTACT </Link>
+            </LogoContainer>
+            <OptionsContainer>
+               <OptionLink to='/shop'> SHOP </OptionLink>
+               <OptionLink to='/shop'> CONTACT </OptionLink>
 
                {
                    currentUser ?
-                       <div className='option' onClick={()=> auth.signOut()}>SIGN OUT</div>
+                       <OptionDiv onClick={()=> auth.signOut()}>SIGN OUT</OptionDiv>
                             :
-                        <Link className='option' to='/signin'>SIGN IN</Link>    
+                        <OptionLink to='/signin'>SIGN IN</OptionLink>    
                }
 
                <CartIcon />
-            </div>
+            </OptionsContainer>
             {cart ? null : <CartDropdown /> }
-        </div>
+        </HeaderContainer>
     )
 }
 

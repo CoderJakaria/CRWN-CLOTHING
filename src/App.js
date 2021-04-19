@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router';
+import styled from "styled-components";
 import './App.css';
 import Header from './components/Header/Header';
 import { auth, createUserProfileDocument } from './Firebase/Firebase.utils';
@@ -10,7 +11,6 @@ import Shop from './pages/Shop/Shop';
 import SignInSignUp from './pages/SignIn-and SignUp-Page/SignIn-SignUp';
 import setCurrentUser from './redux/user/userAction';
 import { selectCurrentUser } from './redux/user/user_selector';
-
 
 function App() {
 
